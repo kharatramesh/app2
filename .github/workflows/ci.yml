@@ -1,9 +1,9 @@
 name: CI
 on:
   pull_request:
-    branches: [devloper, master]
+    branches: [developer, master]
   push:
-    branches: [devloper, master]
+    branches: [developer, master]
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
     steps:
       - uses: actions/checkout@v2
-      - name: Cache node_modules
+      - name: Cache node_modules1
         uses: actions/cache@v1
         with:
           path: ~/.npm
@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: "12.x"
       - run: npm ci
-      - run: npm run format:check
+      
       - run: npm test -- --coverage
         env:
           CI: true
