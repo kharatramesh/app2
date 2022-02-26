@@ -29,7 +29,7 @@ jobs:
       - run: npm test -- --coverage
         env:
           CI: true
-      - name: Upload Test Coverage
+      - name: Upload Test Coverage1
         uses: actions/upload-artifact@v1
         with:
           name: code-coverage
